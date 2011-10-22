@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE project>
+<project name="Project Build" default="build" basedir="../">
+	
+    <target name="ftpupload" description="uploads the publish folder to your web space via ftp">
+<!-- TODO upload views to views, etc    -->
+	<ftp server="${tool.ftp.host}" userid="${tool.ftp.user}" password="${tool.ftp.password}" timediffauto="false" remotedir="${tool.ftp.remotedir}" action="send" verbose="yes" passive="yes" depends="yes">	
+            <fileset dir="${dir.publish}">
+            </fileset>  
+        </ftp>
+    </target>
+
+   <target name="copyViews">
+	    <echo message="copy Views for build"/>
+	    <mkdir dir="${dir.intermediate}/${dir.views}"/>
+            <copy todir="${dir.intermediate}/${dir.views}" includeEmptyDirs="true">
+                <fileset dir="${dir.views}/" excludes="${file.default.exclude}, ${file.exclude}">
+                </fileset>
+            </copy>
+	    <mkdir dir="${dir.publish}/${dir.views}"/>
+            <copy todir="${dir.publish}/${dir.views}" includeEmptyDirs="true">
+                <fileset dir="${dir.views}/" excludes="${file.default.exclude}, ${file.exclude}">
+                </fileset>
+            </copy>                                      
+    </target>
+
+</project>
