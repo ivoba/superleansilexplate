@@ -8,12 +8,10 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 $app = new Silex\Application();
 
-// Local
+// Locale
 $app['locale'] = 'fr';
 $app['session.default_locale'] = $app['locale'];
-$app['translator.messages'] = array(
-    'fr' => __DIR__.'/../resources/locales/fr.yml',
-);
+$app['translator.messages'] = require_once  __DIR__ . '/../resources/locales/translations.php';
 
 // Cache
 $app['cache.path'] = __DIR__ . '/../cache';
@@ -32,6 +30,7 @@ $app->register(new Silex\Provider\HttpCacheServiceProvider());
 $app->register(new Silex\Provider\SessionServiceProvider());
 $app->register(new Silex\Provider\TranslationServiceProvider(), array(
     'locale_fallback' => $app['locale'],
+    'translation.class_path'    => __DIR__.'/../vendor/symfony/src',
 ));
 
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
@@ -46,7 +45,7 @@ $app->before(function () use ($app) {
         });
 
 $app->match('/', function() use ($app) {
-    return $app['twig']->render('index.twig');
+    return $app['twig']->render('index.twig', array('title' => $app['translator']->trans('homepage')));
 })->bind('homepage');
 
 //START CUSTOM CODE
