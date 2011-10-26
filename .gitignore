@@ -1,3 +1,5 @@
 cache/*
 intermediate/*
 publish/*
+#netbeans
+/nbproject/*
