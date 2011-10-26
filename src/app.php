@@ -9,9 +9,9 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 $app = new Silex\Application();
 
 // Locale
-$app['locale'] = 'fr';
+$app['locale'] = 'en';
 $app['session.default_locale'] = $app['locale'];
-$app['translator.messages'] = require_once  __DIR__ . '/../resources/locales/translations.php';
+$app['translator.messages'] = require  __DIR__ . '/../resources/locales/translations.php';
 
 // Cache
 $app['cache.path'] = __DIR__ . '/../cache';
@@ -25,6 +25,8 @@ if(isset ($_SERVER['ENVIRONMENT'])){
 else{
     $app['environment'] = 'prod';
 }
+// Be sure to register Symfony lib
+$app['autoloader']->registerNamespace('Symfony', __DIR__.'/../vendor/symfony/src');
 
 $app->register(new Silex\Provider\HttpCacheServiceProvider());
 $app->register(new Silex\Provider\SessionServiceProvider());
