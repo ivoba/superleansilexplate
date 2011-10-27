@@ -1,22 +1,22 @@
 {% extends layout %}
 
 {% block title %}
-{{ title }}
+{{app.translator.trans('homepage')}}
 {% endblock %}
 
 {% block stylesheets %}
 {% endblock %}
 
 {% block header %}
-This is the header
+{{app.translator.trans('head')}}
 {% endblock %}
 
 {% block content %}
-This is the content
+{{app.translator.trans('content')}}
 {% endblock %}
 
 {% block footer %}
-This is the footer
+{{app.translator.trans('foot')}}
 {% endblock %}
 
 {% block javascripts %}

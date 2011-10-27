@@ -1,4 +1,5 @@
 <?php
+
 require_once __DIR__ . '/../vendor/silex/silex.phar';
 
 use Symfony\Component\HttpFoundation\Response;
@@ -10,63 +11,75 @@ $app = new Silex\Application();
 
 // Locale
 $app['locale'] = 'en';
-$app['session.default_locale'] = $app['locale'];
-$app['translator.messages'] = require  __DIR__ . '/../resources/locales/translations.php';
-
+#if()
+#$app['session.default_locale'] = $app['locale'];
+$app['translator.messages'] = require __DIR__ . '/../resources/locales/translations.php';
+$app['languages'] = array_keys($app['translator.messages']);
 // Cache
 $app['cache.path'] = __DIR__ . '/../cache';
 
 // Http cache
 $app['http_cache.cache_dir'] = $app['cache.path'] . '/http';
-if(isset ($_SERVER['ENVIRONMENT'])){
+if (isset($_SERVER['ENVIRONMENT'])) {
     $app['environment'] = $_SERVER['ENVIRONMENT'];
     $app['debug'] = true;
-}
-else{
+} else {
     $app['environment'] = 'prod';
 }
 // Be sure to register Symfony lib
-$app['autoloader']->registerNamespace('Symfony', __DIR__.'/../vendor/symfony/src');
+$app['autoloader']->registerNamespace('Symfony', __DIR__ . '/../vendor/symfony/src');
 
 $app->register(new Silex\Provider\HttpCacheServiceProvider());
 $app->register(new Silex\Provider\SessionServiceProvider());
 $app->register(new Silex\Provider\TranslationServiceProvider(), array(
     'locale_fallback' => $app['locale'],
-    'translation.class_path'    => __DIR__.'/../vendor/symfony/src',
+    'translation.class_path' => __DIR__ . '/../vendor/symfony/src',
 ));
 
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
-    'twig.path'       => __DIR__.'/../views',
-    'twig.class_path' => __DIR__.'/../vendor/twig/lib',
+    'twig.path' => __DIR__ . '/../views',
+    'twig.class_path' => __DIR__ . '/../vendor/twig/lib',
 ));
 
 //set layout template
 $app->before(function () use ($app) {
-            $app['twig']->addGlobal('env',$app['environment']);
+
+            if ($locale = $app['request']->get('locale')) {
+                $app['locale'] = $locale;
+            }
+
+            $app['twig']->addGlobal('env', $app['environment']);
             $app['twig']->addGlobal('layout', $app['twig']->loadTemplate('layout.twig'));
         });
 
 $app->match('/', function() use ($app) {
-    return $app['twig']->render('index.twig', array('title' => $app['translator']->trans('homepage')));
-})->bind('homepage');
+            return $app->redirect("/".$app['locale']."/index");
+        })->bind('homepage');
+        
+$app->get('/{locale}/index', function () use ($app) {
+                return $app['twig']->render('index.twig');
+        })->assert('locale',implode('|', $app['languages']));
+        
+$app->get('/{locale}', function () use ($app) {
+                return  $app->redirect("/".$app['locale']."/index");
+        })->assert('locale',implode('|', $app['languages']));
 
 //START CUSTOM CODE
-
 //END CUSTOM CODE
 
 $app->error(function (\Exception $e, $code) use ($app) {
-    if ($app['debug']) {
-        return;
-    }
+            if ($app['debug']) {
+                return;
+            }
 
-    switch ($code) {
-        case 404:
-            $message = 'The requested page could not be found.';
-            break;
-        default:
-            $message = 'We are sorry, but something went terribly wrong.';
-    }
+            switch ($code) {
+                case 404:
+                    $message = 'The requested page could not be found.';
+                    break;
+                default:
+                    $message = 'We are sorry, but something went terribly wrong.';
+            }
 
-    return new Response($message, $code);
-});
+            return new Response($message, $code);
+        });
 return $app;
