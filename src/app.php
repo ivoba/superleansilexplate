@@ -11,8 +11,7 @@ $app = new Silex\Application();
 
 // Locale
 $app['locale'] = 'en';
-#if()
-#$app['session.default_locale'] = $app['locale'];
+$app['session.default_locale'] = $app['locale'];
 $app['translator.messages'] = require __DIR__ . '/../resources/locales/translations.php';
 $app['languages'] = array_keys($app['translator.messages']);
 // Cache

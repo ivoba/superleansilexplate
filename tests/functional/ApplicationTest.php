@@ -42,21 +42,18 @@ class ApplicationTest extends WebTestCase
 	//TODO fetch values from translations
 	$this->assertTrue($crawler->filter('html:contains("Startseite")')->count() > 0);
     }
-    public function testLanguageRoutes(){
+    public function testLanguageDe(){
         $client = $this->createClient();
 	$client->followRedirects();
         $crawler = $client->request('GET', '/de');
         $this->assertTrue($client->getResponse()->isOk());
         $this->assertTrue($crawler->filter('html:contains("Kopf")')->count() > 0);
-	$crawler = $client->request('GET', '/de/index');
-        $this->assertTrue($client->getResponse()->isOk());
-        $this->assertTrue($crawler->filter('html:contains("Kopf")')->count() > 0);
+    }
+    public function testLanguageFr(){
+        $client = $this->createClient();
+	$client->followRedirects();
         $crawler = $client->request('GET', '/fr');
         $this->assertTrue($client->getResponse()->isOk());
-        //TODO not working, still returns de should return fr
-        #var_dump($crawler->text());
-        #$this->assertTrue($crawler->filter('html:contains("Pied")')->count() > 0);
-	$crawler = $client->request('GET', '/aa');
-        $this->assertTrue($client->getResponse()->isNotFound());
+        $this->assertTrue($crawler->filter('html:contains("Pied")')->count() > 0);
     }
 }
