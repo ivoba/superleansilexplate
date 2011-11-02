@@ -24,7 +24,7 @@ if (isset($_SERVER['ENVIRONMENT'])) {
     $app['debug'] = true;
 } else {
     $app['environment'] = 'prod';
-}
+} $app['debug'] = false;
 // Be sure to register Symfony lib
 $app['autoloader']->registerNamespace('Symfony', __DIR__ . '/../vendor/symfony/src');
 
@@ -73,12 +73,11 @@ $app->error(function (\Exception $e, $code) use ($app) {
 
             switch ($code) {
                 case 404:
-                    $message = 'The requested page could not be found.';
+                    return $app['twig']->render('404.twig');
                     break;
                 default:
-                    $message = 'We are sorry, but something went terribly wrong.';
+                    return $app['twig']->render('error.twig', array('code' => $code));
             }
-
-            return new Response($message, $code);
         });
+        
 return $app;

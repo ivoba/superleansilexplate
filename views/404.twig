@@ -1,0 +1,24 @@
+{% extends layout %}
+
+{% block title %}
+{{app.translator.trans('404.title')}}
+{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block header %}
+{{app.translator.trans('head')}}
+{% endblock %}
+
+{% block content %}
+<div class="error">{{app.translator.trans('404.message')}}</div>
+<div class="clear"></div>
+{% endblock %}
+
+{% block footer %}
+{{app.translator.trans('foot')}}
+{% endblock %}
+
+{% block javascripts %}
+{% endblock %}

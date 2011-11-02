@@ -7,7 +7,11 @@ return array(
         'content' => array('about' => 'About',
                            'features' => 'Features',
                            'contribute' => 'Contribute'),
-        'foot' => 'Foot'
+        'foot' => 'Foot',
+        '404' => array('title' => 'Page not found',
+                       'message' => 'The requested page could not be found.'),
+        'error' => array('title' => 'error',
+                       'message' => 'Oups, something went wrong.')
     ),
     'de' => array(
         'homepage' => 'Startseite',
