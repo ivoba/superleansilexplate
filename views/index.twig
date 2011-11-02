@@ -12,7 +12,57 @@
 {% endblock %}
 
 {% block content %}
-{{app.translator.trans('content')}}
+<div class="sixteen columns">
+    <h1 class="remove-bottom" style="margin-top: 40px">superleansilexplate</h1>
+    <h5>Version 0.1</h5>
+    <hr />
+</div>
+<div class="one-third column">
+    <h3>{{app.translator.trans('content.about')}}</h3>
+    <p>superleansilexplate is a kick starter for your <a href="">Silex</a> project. 
+        It combines a lean basic Silex configuration with some goodness of the <a href="">HTML5BoilerPlate</a> and some CSS magic from <a href="">Skeleton</a>.
+        <br/>So clone and start coding right away.
+    </p>
+    <p>superleansilexplate aims mainly at simple applications that need routing and just some additional logic. 
+        F.e. its a good container for javascript driven apps that get their data through API calls.</p>
+</div>
+<div class="one-third column">
+    <h3>{{app.translator.trans('content.features')}}</h3>
+    <p>superleansilexplate under the hood:</p>
+    <ul class="square">
+        <li><strong>Silex</strong>: 
+            <ul class="disc">
+                <li>HttpCacheServiceProvider</li>
+                <li>SessionServiceProvider</li>
+                <li>TranslationServiceProvider</li>
+                <li>Translation routing</li>
+                <li>TwigServiceProvider</li>
+                <li>Functional Tests</li>
+            </ul>
+        </li>
+        <li><strong>HTML5Boilerplate</strong>: </li>
+        <ul class="disc">
+            <li>optimized Build</li>
+            <li>assets structure</li>
+            <li>index.html</li>
+            <li>.htaccess</li>
+            <li>.robots</li>
+            <li>CSS reset (optional)</li>
+        </ul>
+        <li><strong>Skeleton</strong>:
+           <ul class="disc">
+            <li>Grid CSS</li>
+            <li>Base CSS</li>
+            <li>Typography CSS</li>
+        </ul 
+        </li>
+    </ul>
+</div>
+<div class="one-third column">
+    <h3>{{app.translator.trans('content.contribute')}}</h3>
+    <p>See the <a href="https://github.com/ivoba/superleansilexplate">project on github</a>, so check that out if you want to report bugs or create a pull request.</p>
+</div>
+<div class="clear"></div>
 {% endblock %}
 
 {% block footer %}
