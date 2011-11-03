@@ -3,10 +3,13 @@
 <project name="Project Build" default="build" basedir="../">
 	
     <target name="ftpupload" description="uploads the publish folder to your web space via ftp">
-<!-- TODO upload views to views, etc    -->
-	<ftp server="${tool.ftp.host}" userid="${tool.ftp.user}" password="${tool.ftp.password}" timediffauto="false" remotedir="${tool.ftp.remotedir}" action="send" verbose="yes" passive="yes" depends="yes">	
-            <fileset dir="${dir.publish}">
-            </fileset>  
+	<ftp server="${tool.ftp.host}" userid="${tool.ftp.user}" password="${tool.ftp.password}" timediffauto="false" remotedir="${tool.ftp.remotewebdir}" action="send" verbose="yes" passive="yes" depends="yes">	
+            <fileset dir="${dir.publish}" excludes="${dir.views}">
+            </fileset>
+        </ftp>
+	<ftp server="${tool.ftp.host}" userid="${tool.ftp.user}" password="${tool.ftp.password}" timediffauto="false" remotedir="${tool.ftp.remoteviewsdir}" action="send" verbose="yes" passive="yes" depends="yes">	
+            <fileset dir="${dir.publish}${dir.views}">
+            </fileset>
         </ftp>
     </target>
 
