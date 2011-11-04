@@ -13,7 +13,7 @@
         </ftp>
     </target>
 
-   <target name="copyViews">
+   <target name="copyviews">
 	    <echo message="copy Views for build"/>
 	    <mkdir dir="${dir.intermediate}/${dir.views}"/>
             <copy todir="${dir.intermediate}/${dir.views}" includeEmptyDirs="true">

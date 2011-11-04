@@ -26,7 +26,7 @@ Start hacking in `src/app.php`
 Build
 -----
 *  `cd build`
-*  `ant copyViews minify`
+*  `ant copyviews minify`
 
 Your optimized site is now in publish, upload it your production server from there to:
 
