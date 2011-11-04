@@ -3,14 +3,14 @@ It aims mainly at simple applications that need routing and just some additional
 F.e. its a good container for javascript driven apps that get their data through API calls.
 
 It provides:
-* HTML5 boilerplate (http://html5boilerplate.com/)
-  * Build
-  * Project structure
-  * CSS reset (optional)
-* Skeleton CSS (http://getskeleton.com)
-* Twig
-* Translation
-* Session
+*  HTML5 boilerplate (http://html5boilerplate.com/)
+  *  Build
+  *  Project structure
+  *  CSS reset (optional)
+*  Skeleton CSS (http://getskeleton.com)
+*  Twig
+*  Translation
+*  Session
 
 Installation
 ------------
@@ -39,3 +39,6 @@ and run:
 Tests
 -----
 `phpunit`
+
+If you need more power try:
+https://github.com/lyrixx/Silex-Kitchen-Edition
