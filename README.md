@@ -1,4 +1,6 @@
 This project is supposed to be a lean starterkit for your Silex app.
+It aims mainly at simple applications that need routing and just some additional logic. 
+F.e. its a good container for javascript driven apps that get their data through API calls.
 
 It provides:
 * HTML5 boilerplate (http://html5boilerplate.com/)
@@ -36,5 +38,4 @@ and run:
 
 Tests
 -----
-
-Just run `phpunit
+`phpunit`
