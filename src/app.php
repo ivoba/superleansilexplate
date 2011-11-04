@@ -9,6 +9,9 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 $app = new Silex\Application();
 
+// Be sure to register Symfony lib
+$app['autoloader']->registerNamespace('Symfony', __DIR__.'/../vendor');
+
 // Locale
 $app['locale'] = 'en';
 $app['session.default_locale'] = $app['locale'];
@@ -19,20 +22,20 @@ $app['cache.path'] = __DIR__ . '/../cache';
 
 // Http cache
 $app['http_cache.cache_dir'] = $app['cache.path'] . '/http';
+
+//ENV
 if (isset($_SERVER['ENVIRONMENT'])) {
     $app['environment'] = $_SERVER['ENVIRONMENT'];
     $app['debug'] = true;
 } else {
     $app['environment'] = 'prod';
-} $app['debug'] = false;
-// Be sure to register Symfony lib
-$app['autoloader']->registerNamespace('Symfony', __DIR__ . '/../vendor/symfony/src');
+    $app['debug'] = false;
+} 
 
 $app->register(new Silex\Provider\HttpCacheServiceProvider());
 $app->register(new Silex\Provider\SessionServiceProvider());
 $app->register(new Silex\Provider\TranslationServiceProvider(), array(
-    'locale_fallback' => $app['locale'],
-    'translation.class_path' => __DIR__ . '/../vendor/symfony/src',
+    'locale_fallback' => $app['locale']
 ));
 
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
