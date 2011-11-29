@@ -59,7 +59,8 @@ $app->match('/', function() use ($app) {
         })->bind('homepage');
         
 $app->get('/{locale}/index', function () use ($app) {
-                return $app['twig']->render('index.twig');
+                $body = $app['twig']->render('index.twig');
+                return new Response($body, 200, array('Cache-Control' => 's-maxage=3600, public'));
         })->assert('locale',implode('|', $app['languages']));
         
 $app->get('/{locale}', function () use ($app) {
