@@ -22,7 +22,7 @@
             </copy>
 	    <mkdir dir="${dir.publish}/${dir.views}"/>
             <copy todir="${dir.publish}/${dir.views}" includeEmptyDirs="true">
-                <fileset dir="${dir.views}/" excludes="${file.default.exclude}, ${file.exclude}">
+                <fileset dir="${dir.views}/" excludes="**/*.twig">
                 </fileset>
             </copy>                                      
     </target>
