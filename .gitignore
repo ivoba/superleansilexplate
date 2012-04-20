@@ -1,5 +1,6 @@
 #Silex
 cache/*
+/composer.phar
 
 # Numerous always-ignore extensions
 *.diff

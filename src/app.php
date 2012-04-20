@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../vendor/silex/silex.phar';
+require_once __DIR__.'/../vendor/autoload.php';
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -8,9 +8,6 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 $app = new Silex\Application();
-
-// Be sure to register Symfony lib
-$app['autoloader']->registerNamespace('Symfony', __DIR__.'/../vendor');
 
 // Locale
 $app['locale'] = 'en';

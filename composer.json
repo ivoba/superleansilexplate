@@ -1,0 +1,20 @@
+{
+    "name"        : "ivoba/superleansilexplate",
+    "type"        : "library",
+    "description" : "lean starterkit for your Silex app",
+    "keywords"    : ["framework","h5bp","skeleton"],
+    "homepage"    : "https://github.com/ivoba/superleansilexplate",
+    "license"     : "MIT",
+    "authors"     : [
+        {
+            "name"  : "Ivo Bathke",
+            "email" : "mail@feednapi.net"
+        }
+    ],
+    "require": {
+        "php"                   : ">=5.3.2",
+        "silex/silex"           : "dev-master",
+        "twig/twig"             : "1.6.2",
+        "symfony/translation"   : "2.1.*"
+    }
+}
