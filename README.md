@@ -17,8 +17,9 @@ It provides:
 Installation
 ------------
 
-*  `git clone`
-*  `git submodule update --init --recursive`
+*  `git clone git@github.com:ivoba/superleansilexplate.git`
+*  `curl -s http://getcomposer.org/installer | php` if you dont have a global composer
+*  `php composer.phar install`
 *  `chmod 777 -R cache/ intermediate/ publish/`
 
 Start hacking in `src/app.php`
