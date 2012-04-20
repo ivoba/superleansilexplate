@@ -64,7 +64,7 @@
 ================================================== */
 	h1, h2, h3, h4, h5, h6 {
 		color: #181818;
-		font-family: "Georgia", "Times New Roman", Helvetica, Arial, sans-serif;
+		font-family: "Georgia", "Times New Roman", serif;
 		font-weight: normal; }
 	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { font-weight: inherit; }
 	h1 { font-size: 46px; line-height: 50px; margin-bottom: 14px;}
@@ -128,7 +128,7 @@
 /* #Buttons
 ================================================== */
 
-	a.button,
+	.button,
 	button,
 	input[type="submit"],
 	input[type="reset"],
@@ -155,10 +155,11 @@
 	  text-shadow: 0 1px rgba(255, 255, 255, .75);
 	  cursor: pointer;
 	  margin-bottom: 20px;
-	  line-height: 21px;
+	  line-height: normal;
+	  padding: 8px 10px;
 	  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
-	a.button:hover,
+	.button:hover,
 	button:hover,
 	input[type="submit"]:hover,
 	input[type="reset"]:hover,
@@ -175,7 +176,7 @@
 	  border-top: 1px solid #aaa;
 	  border-left: 1px solid #aaa; }
 
-	a.button:active,
+	.button:active,
 	button:active,
 	input[type="submit"]:active,
 	input[type="reset"]:active,
@@ -198,6 +199,13 @@
 		padding-left: 0 !important;
 		padding-right: 0 !important;
 		text-align: center; }
+
+	/* Fix for odd Mozilla border & padding issues */
+	button::-moz-focus-inner,
+	input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+	}
 
 
 /* #Tabs (activate in tabs.js)
