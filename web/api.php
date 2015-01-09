@@ -9,7 +9,7 @@ if (php_sapi_name() === 'cli-server' && is_file($filename)) {
 
 Symfony\Component\Debug\Debug::enable();
 
-$app = require_once __DIR__.'/../src/web.php';
+$app = require_once __DIR__.'/../src/api.php';
 
 if ($app['debug']) {
     $app->run();

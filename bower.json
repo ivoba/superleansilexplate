@@ -1,0 +1,9 @@
+{
+  "name": "superleansilexplate",
+  "private": false,
+  "dependencies": {
+    "modernizr": "~2.7",
+    "skeleton": "~2.0"
+  },
+  "devDependencies": {}
+}

@@ -1,0 +1,14 @@
+{% extends 'layout.twig' %}
+
+{% block title %}
+    {{ code }} {{ message }}
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="one-half column" style="margin-top: 25%">
+            <h4>{{ code }}</h4>
+            <p>{{ message }}</p>
+        </div>
+    </div>
+{% endblock %}

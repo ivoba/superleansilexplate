@@ -1,6 +1,0 @@
-[submodule "vendor/twig"]
-	path = vendor/twig
-	url = git://github.com/fabpot/Twig
-[submodule "vendor/Symfony/Component/Translation"]
-	path = vendor/Symfony/Component/Translation
-	url = git://github.com/symfony/Translation.git
