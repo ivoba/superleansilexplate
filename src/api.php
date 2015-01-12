@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/app.php';
+require __DIR__ . '/app.php';
 
 #controllers
 $app->match('/', function () use ($app) {

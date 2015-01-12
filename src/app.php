@@ -5,10 +5,9 @@ use Silex\Provider\HttpCacheServiceProvider;
 
 $app = new Silex\Application();
 
-$app['environment'] = getenv('APP_ENV') ? getenv('APP_ENV') : 'prod';
-if ($app['environment'] == 'dev') {
-    $app['debug'] = true;
-}
+$app['environment'] = getenv('SILEX_ENV') ? getenv('SILEX_ENV') : 'prod';
+$app['debug'] = getenv('SILEX_DEBUG') ? getenv('SILEX_DEBUG') : false;
+
 
 $app['cache.path']           = __DIR__ . '/../cache';
 $app['http_cache.cache_dir'] = $app['cache.path'] . '/http';

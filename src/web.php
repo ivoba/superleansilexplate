@@ -2,7 +2,7 @@
 
 use Symfony\Component\HttpFoundation\Response;
 
-require_once __DIR__ . '/app.php';
+require __DIR__ . '/app.php';
 
 #controllers
 $app->match('/', function () use ($app) {
@@ -25,7 +25,6 @@ $app->error(function (\Exception $e, $code) use ($app) {
             $message = 'We are sorry, but something went terribly wrong.';
             $body    = $app['twig']->render('error.twig', ['code' => $code, 'message' => $message]);
     }
-
     return new Response($body, $code);
 });
 

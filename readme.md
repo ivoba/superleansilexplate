@@ -6,6 +6,9 @@
 
 ## Install
 - composer create-project
+
+   composer create-project ivoba/superleansilexplate . 1.*
+
 - bower install
 
 ## Requirements
@@ -21,6 +24,10 @@
 - symfony vardumper and stop
 - symfony errors
 
+
+# Run
+http://silex.sensiolabs.org/doc/web_servers.html
+FOO=BAR php -d variables_order=EGPCS -S localhost:9090 /tmp/test.php
 ## Run Web
 
     php -S localhost:8080 -t web web/index.php
@@ -34,6 +41,8 @@
     php console hello-world
     
 ## TODO
+- how to start in env
 - session ?
 - translation ?
 - composer create-project
+- tests
