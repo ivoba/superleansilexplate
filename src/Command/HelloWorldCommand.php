@@ -18,7 +18,7 @@ class HelloWorldCommand extends Command
 
     protected function configure()
     {
-        $this->setName('hello-world')
+        $this->setName('superleansilexplate:hello-world')
              ->setDescription('Says: Hello World')
              ->setHelp('Usage: <info>console hello-world</info>')
              ->addOption(
@@ -31,8 +31,6 @@ class HelloWorldCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-
         $output->write("Hello World ...\n");
-        
     }
 } 

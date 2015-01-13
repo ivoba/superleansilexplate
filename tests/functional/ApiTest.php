@@ -1,4 +1,5 @@
 <?php
+namespace Superleansilexplate\Tests;
 
 use Silex\WebTestCase;
 use Silex\Application;

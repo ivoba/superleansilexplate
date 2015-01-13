@@ -7,7 +7,7 @@
 ## Install
 - composer create-project
 
-   composer create-project ivoba/superleansilexplate . 1.*
+    composer create-project ivoba/superleansilexplate . 1.*
 
 - bower install
 
@@ -38,11 +38,8 @@ FOO=BAR php -d variables_order=EGPCS -S localhost:9090 /tmp/test.php
     
 ## Run Cli
 
-    php console hello-world
+    php console superleansilexplate:hello-world
     
 ## TODO
-- how to start in env
-- session ?
-- translation ?
 - composer create-project
-- tests
+- dotenv provider

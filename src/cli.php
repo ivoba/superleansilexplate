@@ -10,12 +10,12 @@ use Symfony\Component\Debug\ErrorHandler;
 ExceptionHandler::register();
 ErrorHandler::register();
 
-require_once __DIR__ . '/app.php';
+require __DIR__ . '/app.php';
 
 //register your tasks
 $app->register(new ConsoleServiceProvider(), array(
     'console.name' => 'Superleansilexplate',
-    'console.version' => '0.1',
+    'console.version' => '1.0',
     'console.project_directory' => __DIR__
 ));
 
