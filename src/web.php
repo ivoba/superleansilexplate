@@ -4,12 +4,9 @@ use Symfony\Component\HttpFoundation\Response;
 
 require __DIR__ . '/app.php';
 
-#controllers
-$app->match('/', function () use ($app) {
-    $message = 'Hello World!';
-    $body    = $app['twig']->render('index.twig', ['message' => $message]);
-    return new Response($body);
-})->bind('homepage');
+//controllers
+$web = require __DIR__ . '/Controller/web.php';
+$app->mount('/', $web);
 
 $app->error(function (\Exception $e, $code) use ($app) {
     if ($app['debug']) {

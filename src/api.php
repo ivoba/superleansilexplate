@@ -2,10 +2,9 @@
 
 require __DIR__ . '/app.php';
 
-#controllers
-$app->match('/', function () use ($app) {
-    return $app->json(['message' => 'Hello World']);
-})->bind('api-index');
+//controllers
+$api = require __DIR__ . '/Controller/api.php';
+$app->mount('/', $api);
 
 $app->error(function (\Exception $e, $code) use ($app) {
     if ($app['debug']) {
@@ -19,7 +18,7 @@ $app->error(function (\Exception $e, $code) use ($app) {
             $message = $e->getMessage();
     }
     return $app->json(array('title' => 'API ' . $code,
-                          'desription' => $message), $code);
+                          'description' => $message), $code);
 });
 
 return $app;

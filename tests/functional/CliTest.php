@@ -18,4 +18,4 @@ class CliTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertTrue($this->app->has('superleansilexplate:hello-world'));
     }
-}                                              
+}

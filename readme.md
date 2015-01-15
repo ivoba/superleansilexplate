@@ -43,3 +43,5 @@ FOO=BAR php -d variables_order=EGPCS -S localhost:9090 /tmp/test.php
 ## TODO
 - composer create-project
 - dotenv provider
+- different controller structure:
+- index.php->app.php->mount(web)->mount(api)
