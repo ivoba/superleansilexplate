@@ -5,15 +5,17 @@ use Silex\Provider\HttpCacheServiceProvider;
 
 $app = new Silex\Application();
 
-//Dotenv::load(__DIR__ . '/..');
-
+//you might want to use https://github.com/ivoba/dotenv-service-provider here
 $app['environment'] = getenv('SILEX_ENV') ? getenv('SILEX_ENV') : 'dev';
+if($app['environment'] === 'dev'){
+    \Dotenv::load(__DIR__ . '/../');
+}
 $app['debug'] = getenv('SILEX_DEBUG') ? getenv('SILEX_DEBUG') : false;
+$app['this'] = getenv('this') ? getenv('this') : 'that';
 
 $app['cache.path']           = __DIR__ . '/../cache';
 $app['http_cache.cache_dir'] = $app['cache.path'] . '/http';
 $app->register(new HttpCacheServiceProvider());
-$app->register(new \Superleansilexplate\EnvProvider());
 
 $app->register(new TwigServiceProvider(), array(
     'twig.options' => array(
