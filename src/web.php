@@ -1,8 +1,17 @@
 <?php
 
 use Symfony\Component\HttpFoundation\Response;
+use Silex\Provider\TwigServiceProvider;
 
 require __DIR__ . '/app.php';
+
+$app->register(new TwigServiceProvider(), array(
+    'twig.options' => array(
+        'cache' => isset($app['twig.options.cache']) ? $app['twig.options.cache'] : false,
+        'strict_variables' => true
+    ),
+    'twig.path' => array(__DIR__ . '/../resources/views')
+));
 
 //controllers
 $web = require __DIR__ . '/Controller/web.php';

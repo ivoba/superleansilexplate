@@ -10,4 +10,6 @@ $web->match('/', function () use ($app) {
     return new Response($body);
 })->bind('homepage');
 
+//add your web actions here
+
 return $web;

@@ -1,47 +1,69 @@
 # Superlean Silex Starterplate
 
-- web
-- api
-- console
+This project is supposed to be a lean starterkit for your Silex app.
 
+It aims mainly at simple applications that need routing and just some additional logic. 
+F.e. its a good container for javascript driven apps that get their data through API calls.
+
+It provides:
+1. Web infrastructure
+  * Skeleton CSS (http://getskeleton.com)
+  * Bower
+  * Modernizr
+  * Twig
+  * HttpCache
+2. REST Api infrastructure
+3. Console infrastructure
+4. Misc
+  * phpdotenv (https://github.com/vlucas/phpdotenv)
+  * symfony vardumper (https://github.com/symfony/var-dumper) 
+  * stop dumper (https://github.com/ivoba/stop)
+  * symfony errors
+  
 ## Install
-- composer create-project
+Via composer create-project
 
-    composer create-project ivoba/superleansilexplate . 1.*
-
-- bower install
+    composer create-project -s dev ivoba/superleansilexplate PATH/TO/YOUR/APP 1.*
+    cd PATH/TO/YOUR/APP
 
 ## Requirements
 - bower
 
-## Features
-- console provider
-- http_cache
-- dotenv
-- twig
+# Usage
 
-### Debug
-- symfony vardumper and stop
-- symfony errors
-
+## Config
+## Templates
+Start hacking in resources/views/*.twig
+## Controller
+Start hacking in src/Controllers/*.php
+## Provider
+Add provider in src/app.php
+## Cli Commands
+Create cli commands in src/Command and  
+register them in src/cli.php
 
 # Run
-http://silex.sensiolabs.org/doc/web_servers.html
-FOO=BAR php -d variables_order=EGPCS -S localhost:9090 /tmp/test.php
+Run it with the php integrated webserver: http://silex.sensiolabs.org/doc/web_servers.html  
+
 ## Run Web
 
-    php -S localhost:8080 -t web web/index.php
+    SILEX_ENV=dev php -d variables_order=EGPCS -S localhost:8080 -t web web/index.php
 
 ## Run Api
 
-    php -S localhost:8088 -t web web/api.php
+    SILEX_ENV=dev php -d variables_order=EGPCS -S localhost:8088 -t web web/api.php
     
 ## Run Cli
 
-    php console superleansilexplate:hello-world
+    SILEX_ENV=dev php -d variables_order=EGPCS console superleansilexplate:hello-world
+    
+or create a apache / nginx vhost.
     
 ## TODO
-- composer create-project
-- dotenv provider
+- .htaccess from h5bp
+- composer create-project, check if works
+- suggest block in composer.json
 - different controller structure:
-- index.php->app.php->mount(web)->mount(api)
+- index.php->app.php->mount(web)->mount(api) ?
+- explain dotenv
+
