@@ -8,10 +8,11 @@ Its superlean, so basically only essential things are included.
 If you need full power try:
 https://github.com/lyrixx/Silex-Kitchen-Edition
 
-It aims mainly at simple applications that need routing and just some additional logic. 
-F.e. its a good container for javascript driven apps that get their data through API calls.
+It aims mainly at simple applications that need routing and just some additional logic.  
+F.e. its a good container for javascript driven apps that get their data through API calls.  
 
 It provides:
+
 1. Web infrastructure
   * Skeleton CSS (http://getskeleton.com)
   * Bower
@@ -33,7 +34,7 @@ Via composer create-project
     cd PATH/TO/YOUR/APP
 
 ## Requirements
-- bower, composer will call bower install/update
+- bower, composer will call bower install
 
 # Usage
 Api and web are designed to run on their own resp. subdomains with their resp starting point in /web.
