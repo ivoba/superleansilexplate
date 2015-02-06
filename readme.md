@@ -1,6 +1,12 @@
 # Superlean Silex Starterplate
 
-This project is supposed to be a lean starterkit for your Silex app.
+[![Build Status](https://secure.travis-ci.org/ivoba/superleansilexplate.png?branch=master)](http://travis-ci.org/ivoba/superleansilexplate)
+
+This project is supposed to be a lean starterkit for your Silex app.  
+Its superlean, so basically only essential things are included.  
+
+If you need full power try:
+https://github.com/lyrixx/Silex-Kitchen-Edition
 
 It aims mainly at simple applications that need routing and just some additional logic. 
 F.e. its a good container for javascript driven apps that get their data through API calls.
@@ -27,11 +33,18 @@ Via composer create-project
     cd PATH/TO/YOUR/APP
 
 ## Requirements
-- bower
+- bower, composer will call bower install/update
 
 # Usage
+Api and web are designed to run on their own resp. subdomains with their resp starting point in /web.
+If you want to only have one starting point copy this to web.php:
+
+    $api = require __DIR__ . '/Controller/api.php';
+    $app->mount('/api', $api);
+
 
 ## Config
+In dev environment we use dotenv for configuration, so you can use a .env file in the project root to mimic Env vars.
 ## Templates
 Start hacking in resources/views/*.twig
 ## Controller
@@ -58,12 +71,8 @@ Run it with the php integrated webserver: http://silex.sensiolabs.org/doc/web_se
     SILEX_ENV=dev php -d variables_order=EGPCS console superleansilexplate:hello-world
     
 or create a apache / nginx vhost.
-    
-## TODO
-- .htaccess from h5bp
-- composer create-project, check if works
-- suggest block in composer.json
-- different controller structure:
-- index.php->app.php->mount(web)->mount(api) ?
-- explain dotenv
 
+Tests
+-----
+`phpunit`
+    

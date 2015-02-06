@@ -35,5 +35,8 @@
     "post-update-cmd": [
       "bower install"
     ]
+  },
+  "suggest": {
+    "ivoba/dotenv-service-provider": "Advanced Service Provider for dotenv"
   }
 }
