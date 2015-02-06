@@ -7,11 +7,16 @@ require __DIR__ . '/app.php';
 
 $app->register(new TwigServiceProvider(), array(
     'twig.options' => array(
-        'cache' => isset($app['twig.options.cache']) ? $app['twig.options.cache'] : false,
+        'cache' => $app['cache.path'].'/twig',
         'strict_variables' => true
     ),
     'twig.path' => array(__DIR__ . '/../resources/views')
 ));
+
+$app->before(function () use ($app) {
+    $app['twig']->addGlobal('environment', $app['environment']);
+    $app['twig']->addGlobal('debug', $app['debug']);
+});
 
 //controllers
 $web = require __DIR__ . '/Controller/web.php';

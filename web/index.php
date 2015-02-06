@@ -11,7 +11,7 @@ Symfony\Component\Debug\Debug::enable();
 
 $app = require_once __DIR__.'/../src/web.php';
 
-if ($app['debug']) {
+if ($app['environment'] != 'prod') {
     $app->run();
 }
 else{

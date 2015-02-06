@@ -30,7 +30,8 @@
   },
   "scripts": {
     "post-install-cmd": [
-      "bower install"
+      "bower install",
+      "chmod 777 cache"
     ],
     "post-update-cmd": [
       "bower install"
