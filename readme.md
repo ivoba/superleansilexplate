@@ -30,7 +30,7 @@ It provides:
 ## Install
 Via composer create-project
 
-    composer create-project -s dev ivoba/superleansilexplate PATH/TO/YOUR/APP 1.*
+    composer create-project -s dev ivoba/superleansilexplate PATH/TO/YOUR/APP 2.*
     cd PATH/TO/YOUR/APP
 
 ## Requirements
