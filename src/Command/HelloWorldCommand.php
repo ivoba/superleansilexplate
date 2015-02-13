@@ -18,15 +18,9 @@ class HelloWorldCommand extends Command
 
     protected function configure()
     {
-        $this->setName('superleansilexplate:hello-world')
+        $this->setName('silex:hello-world')
              ->setDescription('Says: Hello World')
-             ->setHelp('Usage: <info>console hello-world</info>')
-             ->addOption(
-             'env',
-             null,
-             InputOption::VALUE_OPTIONAL,
-             'env?'
-            );
+             ->setHelp('Usage: <info>console hello-world</info>');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)

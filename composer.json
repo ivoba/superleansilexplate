@@ -2,6 +2,7 @@
   "name": "ivoba/superleansilexplate",
   "type": "silex-starter",
   "description": "Superleansilexplate",
+  "license": "MIT",
   "authors": [
     {
       "name": "Ivo Bathke",
@@ -12,6 +13,8 @@
     "php": ">=5.4",
     "silex/silex": "~1.2",
     "symfony/console": "~2.6",
+    "symfony/finder" : "~2.2",
+    "symfony/filesystem": "~2.6",
     "vlucas/phpdotenv": "~1.1",
     "twig/twig": "~1.16",
     "knplabs/console-service-provider": "~1"
@@ -31,7 +34,8 @@
   "scripts": {
     "post-install-cmd": [
       "bower install",
-      "chmod 777 cache"
+      "chmod 777 cache",
+      "cp .env.dist .env"
     ],
     "post-update-cmd": [
       "bower install"

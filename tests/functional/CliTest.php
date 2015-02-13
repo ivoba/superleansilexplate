@@ -16,6 +16,6 @@ class CliTest extends \PHPUnit_Framework_TestCase
 
     public function testCommand()
     {
-        $this->assertTrue($this->app->has('superleansilexplate:hello-world'));
+        $this->assertTrue($this->app->has('silex:hello-world'));
     }
 }

@@ -4,6 +4,8 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use Knp\Provider\ConsoleServiceProvider;
 use Superleansilexplate\Command\HelloWorldCommand;
+use Superleansilexplate\Command\ClearCacheCommand;
+use Superleansilexplate\Command\ServerRunCommand;
 use Symfony\Component\Debug\ExceptionHandler;
 use Symfony\Component\Debug\ErrorHandler;
 
@@ -19,7 +21,8 @@ $app->register(new ConsoleServiceProvider(), array(
     'console.project_directory' => __DIR__
 ));
 
-$console = $app['console'];
-$console->add(new HelloWorldCommand());
+$app['console']->add(new HelloWorldCommand());
+$app['console']->add(new ClearCacheCommand($app['cache.path']));
+$app['console']->add(new ServerRunCommand());
 
-return $console;
+return $app['console'];

@@ -61,15 +61,25 @@ Run it with the php integrated webserver: http://silex.sensiolabs.org/doc/web_se
 
 ## Run Web
 
-    SILEX_ENV=dev php -d variables_order=EGPCS -S localhost:8080 -t web web/index.php
+     php console server:run
+     
+     # in prod env
+     php console server:run -e prod
+
+and open http://127.0.0.1:8000
+
 
 ## Run Api
 
-    SILEX_ENV=dev php -d variables_order=EGPCS -S localhost:8088 -t web web/api.php
+     php console server:run -i api
+     
+and open http://127.0.0.1:8000
     
 ## Run Cli
 
-    SILEX_ENV=dev php -d variables_order=EGPCS console superleansilexplate:hello-world
+    SILEX_ENV=dev php -d variables_order=EGPCS console silex:hello-world
+    # for cache clear
+    php console cache:clear
     
 or create a apache / nginx vhost.
 
