@@ -30,7 +30,7 @@ The <info>%command.name%</info> runs PHP built-in web server:
 
 To change default bind address and port use the <info>address</info> argument:
 
-  <info>%command.full_name% 127.0.0.1:8080</info>
+  <info>%command.full_name% 127.0.0.1:8000</info>
 
 To change default index use the <info>--index</info> option:
 
