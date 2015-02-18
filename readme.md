@@ -58,6 +58,7 @@ register them in src/cli.php
 
 # Run
 Run it with the php integrated webserver: http://silex.sensiolabs.org/doc/web_servers.html  
+or create a apache / nginx vhost.
 
 ## Run Web
 
@@ -81,7 +82,6 @@ and open http://127.0.0.1:8000
     # for cache clear
     php console cache:clear
     
-or create a apache / nginx vhost.
 
 Tests
 -----
