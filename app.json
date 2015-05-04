@@ -1,0 +1,19 @@
+{
+  name: "superleansilexplate on heroku",
+  description: "superleansilexplate using heroku/heroku-buildpack-multi to combine Node.js and PHP, using Bower in a Composer post-install-cmd to install bootstrap",
+  keywords: [
+    "heroku",
+    "buildpack",
+    "PHP",
+    "Composer",
+    "Node.js",
+    "npm",
+    "Bower"
+  ],
+  website: "",
+  repository: "",
+  success_url: "/",
+  env: {
+    BUILDPACK_URL: "https://github.com/heroku/heroku-buildpack-multi"
+  }
+}

@@ -32,6 +32,12 @@ Via composer create-project
 
     composer create-project -s dev ivoba/superleansilexplate PATH/TO/YOUR/APP 2.*
     cd PATH/TO/YOUR/APP
+    
+If you want to base your app on this starter i recommend to do the following after create-project.  
+
+- remove .git and init your own git (you should be prompted for this by composer already)
+- remove composer.lock from .gitignore, so you can store your dependency lock
+- you might want to replace the namespace from "Superleansilexplate" to something more custom
 
 ## Requirements
 - bower, composer will call bower install
@@ -87,3 +93,20 @@ Tests
 -----
 `phpunit`
     
+
+## Heroku
+Superleansilexplate is [heroku](https://heroku.com) ready.  
+
+Because we utilize bower, you will need to run multipacks while creating your heroku app: 
+
+    heroku create --buildpack https://github.com/heroku/heroku-buildpack-multi
+    
+Then just initialize your heroku app as stated in the docs and push it:
+
+    git push heroku master
+
+
+## TODO:
+
+ - yeoman setup with grunt/gulp usage
+ - scrutinizr
