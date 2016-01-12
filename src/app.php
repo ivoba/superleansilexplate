@@ -7,7 +7,8 @@ $app = new Silex\Application();
 //you might want to use https://github.com/ivoba/dotenv-service-provider here
 $app['environment'] = getenv('SILEX_ENV') ? getenv('SILEX_ENV') : 'dev';
 if($app['environment'] === 'dev'){
-    \Dotenv::load(__DIR__ . '/../');
+    $dotenv = new Dotenv\Dotenv(__DIR__ . '/../');
+    $dotenv->load();
 }
 $app['debug'] = getenv('SILEX_DEBUG') ? filter_var(getenv('SILEX_DEBUG'), FILTER_VALIDATE_BOOLEAN) : true;
 
