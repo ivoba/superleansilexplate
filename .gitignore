@@ -1,6 +1,5 @@
 cache/*
 vendor
-composer.lock
 web/components
 .env
 node_modules/
