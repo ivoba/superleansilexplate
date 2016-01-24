@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Knp\Provider\ConsoleServiceProvider;
+use Ivoba\Silex\Provider\ConsoleServiceProvider;
 use Superleansilexplate\Command\HelloWorldCommand;
 use Superleansilexplate\Command\ClearCacheCommand;
 use Superleansilexplate\Command\ServerRunCommand;
@@ -15,11 +15,11 @@ ErrorHandler::register();
 require __DIR__ . '/app.php';
 
 //register your tasks
-$app->register(new ConsoleServiceProvider(), array(
+$app->register(new ConsoleServiceProvider(), [
     'console.name' => 'Superleansilexplate',
     'console.version' => '1.0',
     'console.project_directory' => __DIR__
-));
+]);
 
 $app['console']->add(new HelloWorldCommand());
 $app['console']->add(new ClearCacheCommand($app['cache.path']));

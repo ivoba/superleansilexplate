@@ -1,6 +1,8 @@
 <?php
 namespace Superleansilexplate\Tests;
 
+use Ivoba\Silex\Console\Application;
+
 class CliTest extends \PHPUnit_Framework_TestCase
 {
     public function setUp()
@@ -9,7 +11,7 @@ class CliTest extends \PHPUnit_Framework_TestCase
     }
     public function testConstruct()
     {
-        $this->assertInstanceOf('Knp\Console\Application', $this->app);
+        $this->assertInstanceOf(Application::class, $this->app);
         $this->assertEquals('Superleansilexplate', $this->app->getName());
         $this->assertEquals('1.0', $this->app->getVersion());
     }

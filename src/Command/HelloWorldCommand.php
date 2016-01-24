@@ -3,7 +3,7 @@
 namespace Superleansilexplate\Command;
 
 
-use Knp\Command\Command;
+use Ivoba\Silex\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
