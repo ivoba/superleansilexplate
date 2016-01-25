@@ -16,7 +16,6 @@ It provides:
 1. Web infrastructure
   * Skeleton CSS (http://getskeleton.com)
   * Bower
-  * Modernizr
   * Twig
   * HttpCache
 2. REST Api infrastructure
