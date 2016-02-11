@@ -1,0 +1,7 @@
+apachephp:
+  build: docker/apache-php7-dev
+  container_name: superleansilexplate-dev
+  ports: 
+    - 8088:80
+  volumes:
+    - ./:/var/www/app

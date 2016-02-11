@@ -105,6 +105,18 @@ Then just initialize your heroku app as stated in the docs and push it:
     git push heroku master
 
 
+## Docker
+A docker setup for apache with php7 is provided.  
+
+For using docker in dev environments run docker-compose and check on http://localhost:8088:
+
+    docker-compose up
+    
+For a production build run:
+
+   docker build -t superleansilexplate -f docker/apache-php7-prod/Dockerfile .
+   docker run -it --rm -p 8088:80 --env SILEX_ENV=prod --name run-superleansilexplate superleansilexplate
+
 ## TODO:
 
  - yeoman setup with grunt/gulp usage

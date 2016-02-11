@@ -1,0 +1,10 @@
+# Created by .ignore support plugin (hsz.mobi)
+node_modules
+tests
+docker-compose.yml
+cache/*
+.*
+*.json
+Procfile
+phpunit.xml.dist
+readme.md
