@@ -25,7 +25,7 @@
         "symfony/css-selector": "^3.0",
         "symfony/dom-crawler": "^3.0",
         "symfony/debug": "^3.0",
-        "phpunit/phpunit": "^5.3"
+        "phpunit/phpunit": "^4.8"
     },
     "autoload": {
         "psr-4": {
