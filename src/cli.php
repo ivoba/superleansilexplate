@@ -22,7 +22,11 @@ $app->register(new ConsoleServiceProvider(), [
 ]);
 
 $app['console']->add(new HelloWorldCommand());
-$app['console']->add(new ClearCacheCommand($app['cache.path']));
-$app['console']->add(new ServerRunCommand());
+//$app['console']->add(new ClearCacheCommand($app['cache.path']));
+//$app['console']->add(new ServerRunCommand());
+
+
+//$app['console']->all();
+//dump($app['console']->all());
 
 return $app['console'];
