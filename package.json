@@ -6,6 +6,9 @@
   },
   "author": "Ivo Bathke",
   "license": "MIT",
+  "engines": {
+    "node": "4.8.7"
+  },
   "dependencies": {
     "bower": "~1.3.3"
   }
