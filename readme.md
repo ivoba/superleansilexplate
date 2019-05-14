@@ -1,4 +1,5 @@
 # Superlean Silex Starterplate
+## As Silex is end of life this boilerplate is abandoned! ##
 
 [![Build Status](https://secure.travis-ci.org/ivoba/superleansilexplate.png?branch=master)](http://travis-ci.org/ivoba/superleansilexplate)
 
@@ -22,16 +23,16 @@ It provides:
 3. Console infrastructure
 4. Misc
   * phpdotenv (https://github.com/vlucas/phpdotenv)
-  * symfony vardumper (https://github.com/symfony/var-dumper) 
+  * symfony vardumper (https://github.com/symfony/var-dumper)
   * stop dumper (https://github.com/ivoba/stop)
   * symfony errors
-  
+
 ## Install
 Via composer create-project
 
     composer create-project -s dev ivoba/superleansilexplate PATH/TO/YOUR/APP 2.*
     cd PATH/TO/YOUR/APP
-    
+
 If you want to base your app on this starter i recommend to do the following after create-project.  
 
 - remove .git and init your own git (you should be prompted for this by composer already)
@@ -68,7 +69,7 @@ or create a apache / nginx vhost.
 ## Run Web
 
      php console server:run
-     
+
      # in prod env
      php console server:run -e prod
 
@@ -78,28 +79,28 @@ and open http://127.0.0.1:8000
 ## Run Api
 
      php console server:run -i api
-     
+
 and open http://127.0.0.1:8000
-    
+
 ## Run Cli
 
     SILEX_ENV=dev php -d variables_order=EGPCS console silex:hello-world
     # for cache clear
     php console cache:clear
-    
+
 
 Tests
 -----
 `vendor/bin/phpunit`
-    
+
 
 ## Heroku
 Superleansilexplate is [heroku](https://heroku.com) ready.  
 
-Because we utilize bower, you will need to run multipacks while creating your heroku app: 
+Because we utilize bower, you will need to run multipacks while creating your heroku app:
 
     heroku create --buildpack https://github.com/heroku/heroku-buildpack-multi
-    
+
 Then just initialize your heroku app as stated in the docs and push it:
 
     git push heroku master
@@ -111,7 +112,7 @@ A docker setup for apache with php7 is provided.
 For using docker in dev environments run docker-compose and check on http://localhost:8088:
 
     docker-compose up
-    
+
 For a production build run:
 
    docker build -t superleansilexplate -f docker/apache-php7-prod/Dockerfile .

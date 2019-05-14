@@ -3,6 +3,7 @@
     "type": "silex-starter",
     "description": "Superleansilexplate",
     "license": "MIT",
+    "abandoned": true,
     "authors": [
         {
             "name": "Ivo Bathke",
